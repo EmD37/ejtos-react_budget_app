@@ -1,4 +1,23 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useRef, useEffect, useMemo } from 'react';
+import { debounce } from 'lodash';
+
+export const useDebounce = (callback, time) => {
+    const ref = useRef();
+  
+    useEffect(() => {
+      ref.current = callback;
+    }, [callback]);
+  
+    const debouncedCallback = useMemo(() => {
+      const func = () => {
+        ref.current?.();
+      };
+  
+      return debounce(func, time);
+    }, [time]);
+  
+    return debouncedCallback;
+};
 
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {

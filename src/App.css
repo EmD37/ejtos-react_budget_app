@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+button.btneg {
+    border-radius: 5cm;
+    width: 40px;
+    position: relative;
+    height: 0.8cm;
+}
+  
+button.btpos {
+    border-radius: 5cm;
+    width: 40px;
+    position: relative;
+    height: 0.8cm;
+}
